@@ -1,7 +1,7 @@
 // index.js
 const axios = require('axios');
 const {accessToken} = require("./accessToken");
-const { otp } = require('../request-otp');
+const { otp } = require('./request-otp');
 
 
 

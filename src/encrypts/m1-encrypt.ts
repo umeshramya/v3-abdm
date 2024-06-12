@@ -1,10 +1,10 @@
-// const crypto = require('crypto');
+
 import crypto from "crypto"
 import axios from "axios";
 
-const encrypt = async(data:string, abdmCertUrl='https://healthidsbx.abdm.gov.in/api/v1/auth/cert') => {
+const encrypt = async(data:string) => {
   try {
-    const response = await axios.get(abdmCertUrl);
+    const response = await axios.get(process.env.ABDM_CERT_URL || "");
     const publicKeyPem = response.data; // Extract the PEM from the response
     const encryptedData = crypto.publicEncrypt(
       {
