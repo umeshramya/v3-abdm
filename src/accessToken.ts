@@ -1,5 +1,6 @@
 import axios from "axios"
 export const accessToken = async()=>{
+
     try {
         let data = JSON.stringify({
             "clientId": process.env.NDHM_CLIENT_ID,
@@ -9,7 +10,7 @@ export const accessToken = async()=>{
           let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: `${process.env.NDHM_URL}/gateway/v0.5/sessions`,
+            url: `${process.env.NDHM_URL}gateway/v0.5/sessions`,
             headers: { 
               'Content-Type': 'application/json'
             },
@@ -24,4 +25,4 @@ export const accessToken = async()=>{
     }
 }
 
-module.exports = { accessToken };
+export default accessToken

@@ -1,33 +1,24 @@
-// index.js
-const axios = require('axios');
-const {accessToken} = require("./accessToken");
-const { otp } = require('./request-otp');
+const lib = require("../lib/index")
+require ("dotenv").config()
 
-
-
-
-const getToken = async () => {
+const getOtp =async()=>{
     try {
-        const result = await accessToken();
-        console.log(result);
+        result = await lib.getAaDharOtp('514790474721')
+        console.log(result)
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
-};
+}
 
-const getotp = async () => {
+const getAccessToken  =async()=>{
     try {
-        const result = await otp(`514790474721`);
-        console.log(result);
+        result = await lib.accesToken()
+        console.log(result)
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
-};
+}
 
 
-
-
-
-// getToken()
-getotp()
-
+// getAccessToken()
+getOtp()
