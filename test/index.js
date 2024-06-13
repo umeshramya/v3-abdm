@@ -23,8 +23,8 @@ const getEnrollByAadharOtp = async()=>{
     try {
         result = await lib.enrolByAadharVerification({
             mobile : "9343403620",
-            "txnId" : "1726dea3-4b99-4ff8-86d2-27acc5cb3798",
-            "otp" : "194725"
+            "txnId" : "e0134fc4-4aab-4daf-b9e2-b91474c827b8",
+            "otp" : "179099"
         })
         console.log(result)
     } catch (error) {
@@ -36,4 +36,4 @@ const getEnrollByAadharOtp = async()=>{
 
 // getAccessToken()
 // getOtp()
-getEnrollByAadharOtp()
+// getEnrollByAadharOtp()
