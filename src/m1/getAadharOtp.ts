@@ -1,12 +1,18 @@
 import axios from "axios";
 import { v4 } from "uuid";
-import { accessToken } from "../accessToken";
 import encrypt from "../encrypts/m1-encrypt"
 
-const getAadharOtp = async (adharNumber:string) => {
+
+interface OTP_RESPONSE {
+  txnId: string;
+  message: string;
+}
+
+
+const getAadharOtp = async (adharNumber:string, accessToken:string):Promise<OTP_RESPONSE> => {
   try {
     const encryptedData = await encrypt(adharNumber)
-    const token = await accessToken();
+
     let data = JSON.stringify({
       txnId: "",
       scope: ["abha-enrol"],
@@ -23,12 +29,12 @@ const getAadharOtp = async (adharNumber:string) => {
         "Content-Type": "application/json",
         "REQUEST-ID": v4(),
         TIMESTAMP: new Date().toISOString(),
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
       },
       data: data,
     };
-
-    return (await axios.request(config)).data
+    const response = await axios.request(config)
+    return response.data
   } catch (error:any) {
     throw error.response.data
   }

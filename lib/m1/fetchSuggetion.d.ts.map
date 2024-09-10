@@ -1,0 +1,1 @@
+{"version":3,"file":"fetchSuggetion.d.ts","sourceRoot":"","sources":["../../src/m1/fetchSuggetion.ts"],"names":[],"mappings":"AAGA,UAAU,WAAW;IACnB,KAAK,EAAE,MAAM,CAAC;IACd,eAAe,EAAE,MAAM,EAAE,CAAC;CAC3B;AAED,QAAA,MAAM,eAAe,YAAmB;IACtC,cAAc,EAAE,MAAM,CAAC;IACvB,WAAW,EAAE,MAAM,CAAC;CACrB,KAAG,QAAQ,WAAW,CAoBtB,CAAC;AAEF,eAAe,eAAe,CAAC"}

@@ -10,7 +10,7 @@ const encrypt = async(data:string) => {
       {
         key: publicKeyPem,
         padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
-        oaepHash: 'sha1' // Consider using 'sha256' or 'sha3' for stronger security
+        oaepHash: 'sha1' 
       },
       Buffer.from(data)
     );

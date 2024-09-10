@@ -1,1 +1,1 @@
-{"version":3,"file":"getAadharOtp.d.ts","sourceRoot":"","sources":["../../src/m1/getAadharOtp.ts"],"names":[],"mappings":"AAKA,QAAA,MAAM,YAAY,gBAAsB,MAAM,iBA6B7C,CAAC;AAEF,eAAe,YAAY,CAAA"}
+{"version":3,"file":"getAadharOtp.d.ts","sourceRoot":"","sources":["../../src/m1/getAadharOtp.ts"],"names":[],"mappings":"AAKA,UAAU,YAAY;IACpB,KAAK,EAAE,MAAM,CAAC;IACd,OAAO,EAAE,MAAM,CAAC;CACjB;AAGD,QAAA,MAAM,YAAY,gBAAsB,MAAM,eAAc,MAAM,KAAE,QAAQ,YAAY,CA6BvF,CAAC;AAEF,eAAe,YAAY,CAAA"}

@@ -1,17 +1,39 @@
 import axios from "axios";
 import { v4 } from "uuid";
-import { accessToken } from "../accessToken";
 import encrypt from "../encrypts/m1-encrypt"
+interface TokenDetails {
+  token: string;
+  expiresIn: number;
+  refreshToken: string;
+  refreshExpiresIn: number;
+}
+
+interface ABHAProfile {
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  dob: string;
+  gender: string;
+  photo: string;
+}
+
+interface ENROL_BY_AADHAR_VERIFICATION {
+  message: string;
+  txnId: string;
+  tokens: TokenDetails;
+  ABHAProfile: ABHAProfile;
+}
+
 
 const enrolByAadharVerification = async (options: {
   txnId: string;
   mobile: string;
   otp: string;
-}) => {
+  accessToken : string
+}):Promise<ENROL_BY_AADHAR_VERIFICATION> => {
 
   try {
     const encryptedData = await encrypt(options.otp)
-    const token = await accessToken();
     let data = JSON.stringify({
       authData: {
         authMethods: ["otp"],
@@ -34,15 +56,17 @@ const enrolByAadharVerification = async (options: {
       url: `${process.env.ABHA_BASE_URL_v3}/enrollment/enrol/byAadhaar`,
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${options.accessToken}`,
         TIMESTAMP: new Date().toISOString(),
         "REQUEST-ID": v4(),
       },
       data: data,
     };
 
+    console.log(config)
+
     const result = await axios.request(config);
-    return JSON.stringify(result.data);
+    return JSON.stringify(result.data) as any;
   } catch (error: any) {
     throw error.response.data;
   }
